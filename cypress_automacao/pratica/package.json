@@ -1,0 +1,14 @@
+{
+  "name": "n",
+  "version": "1.0.0",
+  "description": "Projeto Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypres open"
+  },
+  "author": "Gabriel Roquim",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^11.2.0"
+  }
+}
