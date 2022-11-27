@@ -4,11 +4,12 @@
   "description": "Projeto Cypress",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypres open"
+    "test": "npx cypress open"
   },
   "author": "Gabriel Roquim",
   "license": "ISC",
   "dependencies": {
     "cypress": "^11.2.0"
-  }
+  },
+  "devDependencies": {}
 }
