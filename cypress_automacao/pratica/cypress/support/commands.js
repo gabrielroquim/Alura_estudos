@@ -23,3 +23,9 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('login', (nome, senha) =>{
+    cy.get(':nth-child(1) > .form-control').type(nome)
+    cy.get(':nth-child(2) > .form-control').type(senha)
+    cy.contains('button', 'login').click()
+})
