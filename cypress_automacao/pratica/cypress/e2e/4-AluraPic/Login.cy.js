@@ -1,24 +1,27 @@
 /// <reference types="cypress" />
 
-describe('Login e registro de usuários alura pic', () => {
 
+describe('Login e registro de usuários alura pic', () => {
 
     before(() => {
         cy.visit('https://alura-fotos.herokuapp.com/')
     });
-//usando commands
-    it('Realizar Login', () => {
-     cy.login('gabriel','9083gdr!@')
-        cy.get('.navbar-brand').should('contain', 'ALURAPIC')
-        cy.contains( 'a', '(Logout)').should('be.visible')
-        
-    });
+    const usuarios = require('../../fixtures/user.json')
+    //usar forEach pois como na fixtures temps mais de um p foreach vai fazer o cadastro de mais de uma
+    usuarios.forEach(usuario => {
 
-    it.only('Fazer login de usuário inválido', () => {
-      cy.login('java23', 'casa34')
-        cy.on('window:alert',(str)=>{
-            expect(str).to.equal('Invalid user name or password')
-        })
-        
-    });
+        it(`Cadastrar usuário no alura pic ${usuario.userName}`, () => {
+            cy.contains('button', 'Register now').click()
+            cy.contains('button', 'Register').click()
+            cy.get(':nth-child(1) > .form-control').type(usuario.email)
+            cy.get(':nth-child(2) > .form-control').type(usuario.fullName)
+            cy.get(':nth-child(3) > .form-control').type(usuario.name)
+            cy.get(':nth-child(4) > .form-control').type(usuario.password)
+            cy.get('.btn').click({ force: true })
+            cy.get('.text-center').should('contain', 'Register to embrace a new world!')
+        });
+
+    })
+
+
 });
