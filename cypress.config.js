@@ -4,6 +4,7 @@ module.exports = defineConfig({
   projectId: '4nqb23',
   e2e: {
  reporter: "mochawesome",
+ baseUrl: "https://alura-fotos.herokuapp.com",
  reporterOptions:{
   reporterDir: "cypress/report/mochawesome-report",
   overwrite: true,

@@ -1,8 +1,10 @@
 describe('Cadastro de usuários do alura Pic', () => {
 
+    beforeEach(() => {
+        cy.visit('/')
+    })
 
     it('Cadastrar usuário no alura pic', () => {
-
         cy.contains('button', 'Register').click()
         cy.get(':nth-child(1) > .form-control').type("mertens@uol.gov")
         cy.get(':nth-child(2) > .form-control').type("c")

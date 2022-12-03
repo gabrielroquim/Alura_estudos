@@ -29,3 +29,12 @@ Cypress.Commands.add('login', (nome, senha) =>{
     cy.get(':nth-child(2) > .form-control').type(senha)
     cy.contains('button', 'login').click()
 })
+
+//Não mostrar a senha use Log: false
+Cypress.Commands.add('login2', (nome, senha) =>{
+    cy.get('input[formcontrolname="userName"]').type(nome);
+    console.log(nome)
+    console.log(senha)
+    cy.get('input[formcontrolname="password"]').type(senha, {log: false});
+    cy.get('button[type="submit"]').click();
+})

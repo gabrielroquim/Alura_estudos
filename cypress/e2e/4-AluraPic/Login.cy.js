@@ -19,8 +19,5 @@ describe('Login e registro de usuários alura pic', () => {
             cy.contains('button', 'Register').click()         
             
         });
-
     })
-
-
 });
