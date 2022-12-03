@@ -1,9 +1,9 @@
 describe('Buscar fotos e dados', () => {
 
-    it('Buscar fotos do Flávio', () => {
+    it.only('Buscar fotos do Flávio', () => {
         cy.request({
             method: 'GET',
-            url: 'https://alurapic.herokuapp.com/flavio/photos'
+            url: 'https://apialurapic.herokuapp.com/flavio/photos'
         }).then((res) => {
             expect(res.status).to.be.equal(200)
             expect(res.body).is.not.empty
@@ -15,7 +15,7 @@ describe('Buscar fotos e dados', () => {
     it.only('Realizar login', () => {
         cy.request({
             method: 'POST',
-            url: 'https://alurapic.herokuapp.com/user/login',
+            url: 'https://apialurapic.herokuapp.com/user/login',
             body: Cypress.env()
         }).then((res) => {
             expect(res.status).to.be.equal(200)
